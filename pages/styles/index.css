@@ -245,22 +245,3 @@ input[type=checkbox].readonlyCell:after {
 .modalDialog > div > div {
     text-align: center;
 }
-
-/*
-.modalDialog input[type="button"]  {
-    width: 40%;
-    margin: 0 8px;
-    background-color: var(--to-gradient-body-color);
-    color: #ffffbb;
-    font-weight: 500;
-    border-radius: 3px;
-    transition: all ease-in-out 500ms;    
-    padding: 10px;
-}
-
-.modalDialog input[type="button"]:hover  {
-    background-color: transparent;
-    color: var(--to-gradient-body-color);  
-    border: 2px solid var(--to-gradient-body-color);
-    font-weight: 500;
-} */

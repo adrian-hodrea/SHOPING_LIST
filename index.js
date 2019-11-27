@@ -204,9 +204,9 @@ function promptInfoMessage(messageToDisplay) {
     modalContainer.innerHTML = 
         `
             <div>
-                <p>${messageToDisplay}<p>
+                <p>${messageToDisplay}</p>
                 <div>
-                    <input type="button" id="hitBtn" class = "button" value="OK">
+                    <div id="hitBtn" class="button">OK</div>
                 </div>
             </div>
         `
