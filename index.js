@@ -7,6 +7,7 @@ var shoppingItems = [];
 
 function onHtmlLoaded() {
     document.getElementById("addItemButton").addEventListener("click", onAddItemButtonClick);
+
 }; 
 
 function onAddItemButtonClick () {
@@ -29,8 +30,13 @@ function onAddItemButtonClick () {
 
 function handleSaveBtnClick(tr,listItem) {
     return function () {
-        applyReadonlyUi(tr);
-        writeFromHtmlToObj(tr,listItem);
+        if(checkMandatoryFields(tr)) {
+            applyReadonlyUi(tr);
+            writeFromHtmlToObj(tr,listItem);    
+        } 
+        else {
+            promptInfoMessage("Completati campurile obligatorii !!!");
+        }
     }
 }   
 
@@ -62,10 +68,10 @@ function createObjectView () {
                 <input type="checkbox" name="checked" value="Y" data-objProp="checked"></input>
             </td>
             <td>
-                <input type="text" name="description" data-objProp="description"></input>
+                <input type="text" name="description" data-objProp="description" required></input>
             </td>
             <td>
-                <input type="number" name="quantity" data-objProp="quantity" min="0"></input>
+                <input type="number" name="quantity" data-objProp="quantity" min="0" required></input>
             </td>
             <td>
                 <div title="Salveaza" id="saveChangesBtn" class="button">
@@ -143,7 +149,6 @@ function applyDeleteUi (tr) {
     tr.parentElement.removeChild(tr);
 }
 
-
 function writeFromHtmlToObj (tr, object) {
     const itemData = Array.from(tr.querySelectorAll("[data-objProp]"));
     itemData.forEach( (item) => {
@@ -176,3 +181,36 @@ function deleteRelatedObject(listItem) {
         }
     }
 }
+
+function checkMandatoryFields(parentElement)  {
+    const requiredFields = parentElement.querySelectorAll("input[required]");
+    var allRequiredFieldsOK = true;
+    requiredFields.forEach( (item)=> {
+        if ((item.value === "") || (item.value == 0)) {
+            allRequiredFieldsOK = false;
+            item.classList.add("mandatoryField");
+        }
+        else {
+            item.classList.remove("mandatoryField");
+        }
+    })
+    return allRequiredFieldsOK;
+}
+
+function promptInfoMessage(messageToDisplay) {
+    const modalContainer = document.createElement("div");
+    modalContainer.id = "OpenModal";
+    modalContainer.classList.add("modalDialog");
+    modalContainer.innerHTML = 
+        `
+            <div>
+                <p>${messageToDisplay}<p>
+                <div>
+                    <input type="button" id="hitBtn" class = "button" value="OK">
+                </div>
+            </div>
+        `
+    document.body.appendChild(modalContainer);
+    document.getElementById("hitBtn")
+        .addEventListener("click", () => document.getElementById("OpenModal").remove());
+};

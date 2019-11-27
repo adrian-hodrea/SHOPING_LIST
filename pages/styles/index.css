@@ -138,7 +138,7 @@ input[type="checkbox"]:after {
 .button:hover {
     background-color: var(--font-color-dark); 
     color: var(--button-color);
-    transition: ease-in-out all 0.5s;
+    transition: ease-in-out all 500ms;
 }
 
 .cancelEditRowBtn {
@@ -178,6 +178,7 @@ input[type="checkbox"]:after {
     box-shadow: 0 0 6px 2px white inset; 
 }
 
+
 input[type=checkbox].editableCell:after {
     background-color: var(--editable-field-color); 
 }
@@ -201,3 +202,65 @@ input[type=checkbox].readonlyCell:after {
     cursor: not-allowed;
 }
 
+.mandatoryField {
+    background-color: var(--delete-button-color);
+    border: 1px solid red;
+}
+
+
+/* ------- Modal Info message styles -------- */ 
+.modalDialog { 
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+    background: rgba(164, 222, 253, 0.5);
+    z-index: 99999;
+	-webkit-transition: opacity 400ms ease-in;
+	-moz-transition: opacity 400ms ease-in;
+	transition: opacity 400ms ease-in;
+	pointer-events: auto;
+}
+
+.modalDialog > div {
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%,-35%); 
+    width: 360px;
+    padding: 46px 26px;
+    font-weight: 800;
+    color: var(--font-color-black);
+    background-color: var(--font-color-dark);
+    border: 2px solid var(--delete-button-color);
+    border-radius: 5px;
+}
+
+.modalDialog p {
+    font-size: 18px;
+    color: var(--delete-button-color);
+}
+
+.modalDialog > div > div {
+    text-align: center;
+}
+
+/*
+.modalDialog input[type="button"]  {
+    width: 40%;
+    margin: 0 8px;
+    background-color: var(--to-gradient-body-color);
+    color: #ffffbb;
+    font-weight: 500;
+    border-radius: 3px;
+    transition: all ease-in-out 500ms;    
+    padding: 10px;
+}
+
+.modalDialog input[type="button"]:hover  {
+    background-color: transparent;
+    color: var(--to-gradient-body-color);  
+    border: 2px solid var(--to-gradient-body-color);
+    font-weight: 500;
+} */
