@@ -1,0 +1,1 @@
+If you don’t have a web project, try building a small user interface that handles a shopping list, where you can add items and quantities and you can cross-check items and remove them later from the list. If you have any questions about the mini-project, don’t hesitate to contact us before sending the application.

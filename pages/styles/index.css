@@ -1,0 +1,203 @@
+
+:root {
+    --gradient-body-from-color: #00192b;
+    --gradient-body-to-color: #023253;
+    --font-color-dark: #275e80;
+    --font-color-light: #9fc2dd;
+    --editable-field-color: #61bcf8;
+    --readonly-field-color: #0062a3;
+    --button-color: #a4defd;
+    --cancel-button-color: #dbdbdb;
+    --delete-button-color: #ffafa8;
+}
+
+* {
+    color: var(--font-color-light);
+    font-size: 20px;
+    font-weight: bold;
+    box-sizing: border-box;
+}
+
+/* ----------- General styles and layout ------------ */
+
+body {
+    background-image: linear-gradient(to right, var(--gradient-body-from-color), var(--gradient-body-to-color));
+}
+
+header {
+    width: 65%;
+    margin: 0 auto;
+}
+
+section, table {
+    width: 55%;
+    margin: 0 auto;
+}
+
+section {
+    margin: 30px auto;
+    position: relative;
+}
+
+section p {
+    margin: 5px 0;
+}
+
+.searchButtonContainer, .addItemButtonContainer {
+    height: 30px;
+}
+
+#searchButton {
+    position: absolute;
+    right: 0;
+} 
+
+#addItemButton {
+    position: absolute;
+    left: 0;
+}
+
+table {
+    table-layout: fixed;
+    margin-top: 10px;
+}
+
+td {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+tr th:first-child, tr td:first-child {
+    width: 10%;
+}
+
+tr th:nth-child(2), tr td:nth-child(2) {
+    width: 45%;
+}
+
+tr th:nth-child(3), tr td:nth-child(3) {
+    width: 8%;
+}
+
+tr th:last-child, tr td:last-child {
+    width: 37%;
+    padding-left: 10px;
+}
+
+/*  -------   Input fields styles  -------  */
+
+input {
+    width: 100%;
+    outline: none;
+    padding: 4px;
+    border: 1px solid var(--font-color-dark);
+    border-radius: 3px;
+    font-size: 14px;
+}
+
+input[type="checkbox"] {
+    cursor: pointer;
+    font-size: 14px;
+    position: relative;
+}
+
+input[type="checkbox"]:after {
+    content: " ";
+    border-radius: 3px;
+    display: inline-block;
+    position: relative;
+    top: -50%; 
+    left: 50%; 
+    transform: translate(-50%);
+    width: 24px;
+    height: 24px;
+    padding-left: 3px;
+    padding-top: 2px;
+  }
+  
+  input[type="checkbox"]:checked:after {
+    content: "\00a0\2714";
+  }
+
+
+/* ------------------ Buttons styles ------------------ */
+
+.button {
+    color: var(--font-color-dark);
+    padding: 1px 10px;
+    border: 1px solid var(--button-color);
+    border-radius: 5px;
+    background-color: var(--button-color); 
+    display: inline-block;
+    font-size: 18px;
+    margin: 4px 4px;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: var(--font-color-dark); 
+    color: var(--button-color);
+    transition: ease-in-out all 0.5s;
+}
+
+.cancelEditRowBtn {
+    border: 1px solid var(--cancel-button-color);
+    background-color: var(--cancel-button-color);
+    color: black;
+}
+
+.cancelEditRowBtn:hover {
+    border: 1px solid var(--cancel-button-color);
+    background-color: black;
+    color: var(--cancel-button-color);
+}
+
+
+.deleteRowBtn {
+    border: 1px solid var(--delete-button-color);
+    background-color: var(--delete-button-color);
+    color: black;
+}
+
+.deleteRowBtn:hover {
+    border: 1px solid var(--delete-button-color);
+    background-color: black;
+    color: var(--delete-button-color);
+}
+
+/* -------------- Insert + Update + ReadOnly UI classes -------------------- */
+
+
+.editableCell {
+ background-color: var(--editable-field-color);
+ color: var(--font-color-dark);
+}
+
+.editableCell:focus {
+    box-shadow: 0 0 6px 2px white inset; 
+}
+
+input[type=checkbox].editableCell:after {
+    background-color: var(--editable-field-color); 
+}
+
+input[type=checkbox].editableCell:focus {
+    box-shadow: none;
+}
+
+input[type=checkbox].editableCell:focus:after {
+    box-shadow: 0 0 6px 2px white inset; 
+}
+
+.readonlyCell {
+    background-color: var(--readonly-field-color);
+    outline: none;
+    cursor: not-allowed;
+}
+
+input[type=checkbox].readonlyCell:after {
+    background-color: var(--readonly-field-color); 
+    cursor: not-allowed;
+}
+
