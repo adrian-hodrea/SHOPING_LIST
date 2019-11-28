@@ -7,7 +7,7 @@ var shoppingItems = [];
 
 function onHtmlLoaded() {
     document.getElementById("addItemButton").addEventListener("click", onAddItemButtonClick);
-
+    document.getElementById("searchInput").addEventListener("keyup", searchForItems);
 }; 
 
 function onAddItemButtonClick () {
@@ -214,3 +214,23 @@ function promptInfoMessage(messageToDisplay) {
     document.getElementById("hitBtn")
         .addEventListener("click", () => document.getElementById("OpenModal").remove());
 };
+
+
+function searchForItems() {
+    var input = document.getElementById("searchInput");
+    var filter = input.value.toUpperCase();
+
+    var itemsContainer = document.getElementById("itemsContainer");
+    var items = Array.from(itemsContainer.querySelectorAll(`input[data-objProp="description"]`));
+
+    items.forEach(element => {
+        var itemDescription = element.value.toUpperCase();
+        var item = element.parentElement.parentElement;
+        if (itemDescription.indexOf(filter) >= 0) {
+            item.style.display = ""
+        }
+        else {
+            item.style.display = "none"
+        }
+    });
+}

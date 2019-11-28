@@ -1,4 +1,3 @@
-
 :root {
     --gradient-body-from-color: #00192b;
     --gradient-body-to-color: #023253;
@@ -29,37 +28,25 @@ header {
     margin: 0 auto;
 }
 
-section, table {
-    width: 55%;
-    margin: 0 auto;
-}
-
 section {
+    width: 50%;
     margin: 30px auto;
-    position: relative;
 }
 
-section p {
-    margin: 5px 0;
-}
-
-.searchButtonContainer, .addItemButtonContainer {
-    height: 30px;
-}
-
-#searchButton {
-    position: absolute;
-    right: 0;
-} 
-
-#addItemButton {
-    position: absolute;
-    left: 0;
+#searchInput {
+    width: 70%;
+    background-image: url('search_icon.png');
+    background-size: 18px;
+    background-position: 4px 4px;
+    background-repeat: no-repeat;
+    padding-left: 24px;
+    margin-bottom: 20px;
 }
 
 table {
+    width: 55%;
+    margin: 0 auto;
     table-layout: fixed;
-    margin-top: 10px;
 }
 
 td {
@@ -153,7 +140,6 @@ input[type="checkbox"]:after {
     color: var(--cancel-button-color);
 }
 
-
 .deleteRowBtn {
     border: 1px solid var(--delete-button-color);
     background-color: var(--delete-button-color);
@@ -168,7 +154,6 @@ input[type="checkbox"]:after {
 
 /* -------------- Insert + Update + ReadOnly UI classes -------------------- */
 
-
 .editableCell {
  background-color: var(--editable-field-color);
  color: var(--font-color-dark);
@@ -177,7 +162,6 @@ input[type="checkbox"]:after {
 .editableCell:focus {
     box-shadow: 0 0 6px 2px white inset; 
 }
-
 
 input[type=checkbox].editableCell:after {
     background-color: var(--editable-field-color); 
@@ -207,8 +191,8 @@ input[type=checkbox].readonlyCell:after {
     border: 1px solid red;
 }
 
-
 /* ------- Modal Info message styles -------- */ 
+
 .modalDialog { 
 	position: fixed;
 	top: 0;

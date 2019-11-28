@@ -6,27 +6,20 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Shopping List</title>
     <link rel="stylesheet" href="pages/styles/index.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-
-
 </head>
+
 <body>
     <header>
         <h1>Shoping list</h1>
     </header>
 
     <section id="search">
-        <h2>Search item</h2>
-        <p>Description</p>
-        <input type="text" name="search" />
-        <div class="searchButtonContainer">
-            <div title="Search" id="searchButton" class="button">Search</div>
-        </div>
+        <input type="text" id="searchInput" placeholder="Search for items..." name="search" class="editableCell" />
         <div class="addItemButtonContainer">
             <div title="Add new item" id="addItemButton" class="button">Add item</div>
         </div>
-    
     </section>
+
     <table>
         <tbody id="itemsContainer" class="listContainer">
             <tr>
@@ -37,6 +30,7 @@
             </tr>
         </tbody>
     </table>
+
     <script src="models/ListItem.js"></script>
     <script src="index.js"></script>
 </body>
